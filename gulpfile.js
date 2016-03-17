@@ -10,6 +10,7 @@ gulp.task ('bootstrap', function() {
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(sourcemaps.write('./'))
+        .pipe(minify())
         .pipe(gulp.dest('./stylesheet/'));
 });
 
@@ -19,14 +20,16 @@ gulp.task ('custom', function() {
         .pipe(less())
         .pipe(concat('custom.css'))
         .pipe(sourcemaps.write('./'))
+        .pipe(minify())
         .pipe(gulp.dest('./stylesheet/'));
 });
 
 
-
-gulp.task ('default', function() {
-
+gulp.task ('watch', function() {
     gulp.watch('stylesheet/less/vendor/bootstrap/**/*.less', ['bootstrap']);
-
     gulp.watch('stylesheet/less/custom/**/*.less', ['custom']);
 })
+
+
+
+gulp.task ('default', ['bootstrap', 'custom', 'watch']);
