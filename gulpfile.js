@@ -13,10 +13,20 @@ gulp.task ('bootstrap', function() {
         .pipe(gulp.dest('./stylesheet/'));
 });
 
-gulp.task ('default', function() {
-    gulp.run('bootstrap');
+gulp.task ('custom', function() {
+    gulp.src(['./stylesheet/less/custom/**/*.less'])
+        .pipe(sourcemaps.init())
+        .pipe(less())
+        .pipe(concat('custom.css'))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('./stylesheet/'));
+});
 
-    gulp.watch('./stylesheet/less/vendor/bootstrap/**', function (event) {
-        gulp.run('bootstrap');
-    })
+
+
+gulp.task ('default', function() {
+
+    gulp.watch('stylesheet/less/vendor/bootstrap/**/*.less', ['bootstrap']);
+
+    gulp.watch('stylesheet/less/custom/**/*.less', ['custom']);
 })
