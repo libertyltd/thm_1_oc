@@ -111,6 +111,8 @@
             <?php } ?>
 
 
+                <?php echo $language; ?>
+            </ul>
         </div>
     </div>
 </nav>
