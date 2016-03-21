@@ -77,9 +77,11 @@
             <?php if ($categories) { ?>
             <ul class="nav navbar-nav">
                 <li class="visible-xs">
-                    <span class="section-header">
-                        <?php echo $text_category; ?>
-                    </span>
+                    <a>
+                        <span class="section-header">
+                            <?php echo $text_category; ?>
+                        </span>
+                    </a>
                 </li>
                 <?php foreach ($categories as $category) { ?>
                     <?php if ($category['children']) { ?>
@@ -116,8 +118,16 @@
             <?php } ?>
 
 
-                <?php echo $language; ?>
+            <ul class="nav navbar-nav navbar-right contacts-panel">
+                <li class="dropdown">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="visible-xs"></span>
+                    <ul class="dropdown-menu">
+                        <li></li>
+                    </ul>
+                </li>
             </ul>
+            <?php echo $language; ?>
         </div>
     </div>
 </nav>

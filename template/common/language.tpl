@@ -14,6 +14,9 @@
           <?php if ($language['code'] == $code) { ?>
           class="current"
           <?php } ?>
+          data-toggle="tooltip"
+          data-placement="bottom"
+          title="<?php echo $language['name']; ?>"
           >
             <?php echo ucfirst($language['code']); ?>
           </a>
