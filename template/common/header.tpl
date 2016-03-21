@@ -21,7 +21,7 @@
     <?php } ?>
 
     <link href="catalog/view/theme/rusmoke/stylesheet/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
-    <link href="catalog/view/theme/rusmoke/stylesheet/custom.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="catalog/view/theme/rusmoke/stylesheet/font-awesome.css" rel="stylesheet" type="text/css" media="screen">
     <!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
 
     <?php foreach ($styles as $style) { ?>
@@ -46,9 +46,78 @@
     <?php foreach ($analytics as $analytic) { ?>
     <?php echo $analytic; ?>
     <?php } ?>
-
 </head>
+
 <body class="<?php echo $class; ?>">
+
+<nav class="navbar header-top-menu">
+    <div class="container">
+        <div class="navbar-header">
+            <span class="visible-xs small-logo">
+                <?php if ($logo) { ?>
+                    <a href="<?php echo $home; ?>">
+                        <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
+                    </a>
+                <?php } else { ?>
+                    <h1>
+                        <a href="<?php echo $home; ?>">
+                            <?php echo $name; ?>
+                        </a>
+                    </h1>
+                <?php } ?>
+            </span>
+            <button type="button"
+                    class="btn btn-navbar navbar-toggle"
+                    data-toggle="collapse"
+                    data-target=".menu-collapsed">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse menu-collapsed">
+            <?php if ($categories) { ?>
+            <ul class="nav navbar-nav">
+                <?php foreach ($categories as $category) { ?>
+                    <?php if ($category['children']) { ?>
+                    <li class="dropdown">
+                        <a href="<?php echo $category['href']; ?>"
+                           class="dropdown-toggle"
+                           data-toggle="dropdown">
+                            <?php echo $category['name']; ?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                                <ul class="part-of-menu">
+                                    <?php foreach ($children as $child) { ?>
+                                    <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+                                    <?php } ?>
+                                </ul>
+                                <?php } ?>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo $category['href']; ?>"
+                                   class="see-all">
+                                    <?php echo $text_all; ?> <?php echo $category['name']; ?>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <?php } else { ?>
+                    <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                    <?php } ?>
+                    <?php } ?>
+            </ul>
+            <?php } ?>
+
+
+        </div>
+    </div>
+</nav>
+
+
+
+
 
 
 
@@ -81,6 +150,8 @@
     </div>
   </div>
 </nav>
+
+
 <header>
   <div class="container">
     <div class="row">
@@ -99,6 +170,7 @@
     </div>
   </div>
 </header>
+
 <?php if ($categories) { ?>
 <div class="container">
   <nav id="menu" class="navbar">

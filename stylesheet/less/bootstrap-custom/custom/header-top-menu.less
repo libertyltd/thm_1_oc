@@ -1,0 +1,55 @@
+.header-top-menu {
+    min-height: auto;
+
+    .small-logo {
+        .make-xs-column(5);
+
+        & h1 {
+            .navbar-vertical-align (34px);
+        }
+
+        & img {
+            .img-responsive();
+            .navbar-vertical-align (34px);
+        }
+    }
+
+    button {
+        font-size: @font-size-large;
+        &:active:focus,
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    .nav {
+        & > li > a {
+            padding: 14px 34px 14px 0px;
+        }
+
+
+        li > a,
+        li > a:focus,
+        li > a:hover,
+        .open>a,
+        .open>a:focus,
+        .open>a:hover {
+            background-color: transparent;
+        }
+
+        .dropdown-menu {
+            background-color: @gray-night-dark;
+
+            li {
+                white-space: nowrap;
+            }
+
+            .part-of-menu {
+                list-style-type: none;
+                padding: 3px 20px;
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+    }
+}
