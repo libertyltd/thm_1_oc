@@ -76,6 +76,11 @@
         <div class="collapse navbar-collapse menu-collapsed">
             <?php if ($categories) { ?>
             <ul class="nav navbar-nav">
+                <li class="visible-xs">
+                    <span class="section-header">
+                        <?php echo $text_category; ?>
+                    </span>
+                </li>
                 <?php foreach ($categories as $category) { ?>
                     <?php if ($category['children']) { ?>
                     <li class="dropdown">
