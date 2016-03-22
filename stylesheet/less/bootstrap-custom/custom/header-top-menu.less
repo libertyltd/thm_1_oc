@@ -1,16 +1,23 @@
 .header-top-menu {
     min-height: auto;
 
+    .navbar-header {
+        position: relative;
+    }
+
     .small-logo {
-        .make-xs-column(5);
+        position: absolute;
+        height: 50px;
+        padding-left:  14px;
+        top: 50%;
+        margin-top: -25px;
 
         & h1 {
             .navbar-vertical-align (34px);
         }
 
         & img {
-            .img-responsive();
-            .navbar-vertical-align (34px);
+            height: 50px;
         }
     }
 
@@ -43,6 +50,15 @@
 
             & > li > a {
                 cursor: pointer;
+            }
+
+            li > a:focus,
+            li > a:hover,
+            .open>a:focus,
+            .open>a:hover {
+                @media (max-width: @screen-sm) {
+                    background-color: transparent;
+                }
             }
 
             .visible-xs {
