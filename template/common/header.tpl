@@ -35,7 +35,7 @@
     <script src="catalog/view/theme/rusmoke/javascript/jquery/jquery-2.2.2.min.js" type="text/javascript"></script>
     <script src="catalog/view/theme/rusmoke/javascript/bootstrap/bootstrap.min.js" type="text/javascript"></script>
 
-    <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+    <script src="catalog/view/theme/rusmoke/javascript/common.js" type="text/javascript"></script>
 
 
     <?php foreach ($scripts as $script) { ?>
@@ -77,10 +77,8 @@
             <?php if ($categories) { ?>
             <ul class="nav navbar-nav">
                 <li class="visible-xs">
-                    <a>
-                        <span class="section-header">
+                    <a class="section-header">
                             <?php echo $text_category; ?>
-                        </span>
                     </a>
                 </li>
                 <?php foreach ($categories as $category) { ?>
@@ -117,13 +115,15 @@
             </ul>
             <?php } ?>
 
-
+            <?php echo $cart; ?>
             <ul class="nav navbar-nav navbar-right contacts-panel">
                 <li class="dropdown">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="visible-xs"></span>
+                    <i class="fa fa-envelope-o" class="dropdown-toggle"
+                       data-toggle="dropdown"></i>
                     <ul class="dropdown-menu">
-                        <li></li>
+                        <li>
+                            <a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i><span class="contacts-panel__item"><?php echo $telephone; ?></span></a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -187,36 +187,3 @@
     </div>
   </div>
 </header>
-
-<?php if ($categories) { ?>
-<div class="container">
-  <nav id="menu" class="navbar">
-    <div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_category; ?></span>
-      <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        <?php foreach ($categories as $category) { ?>
-        <?php if ($category['children']) { ?>
-        <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
-          <div class="dropdown-menu">
-            <div class="dropdown-inner">
-              <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-              <ul class="list-unstyled">
-                <?php foreach ($children as $child) { ?>
-                <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
-                <?php } ?>
-              </ul>
-              <?php } ?>
-            </div>
-            <a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a> </div>
-        </li>
-        <?php } else { ?>
-        <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-        <?php } ?>
-        <?php } ?>
-      </ul>
-    </div>
-  </nav>
-</div>
-<?php } ?>

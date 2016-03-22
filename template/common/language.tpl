@@ -2,10 +2,8 @@
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="language">
     <ul class="nav navbar-nav navbar-right language-panel">
         <li class="visible-xs">
-          <a>
-          <span class="section-header">
+          <a class="section-header">
             <?php echo $text_language; ?>
-          </span>
           </a>
         </li>
         <?php foreach ($languages as $language) { ?>

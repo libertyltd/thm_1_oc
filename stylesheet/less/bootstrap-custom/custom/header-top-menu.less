@@ -25,10 +25,6 @@
     .section-header {
         font-weight: 600;
         font-size: @font-size-large;
-        padding-right: @navbar-padding-horizontal;
-        padding-left:  @navbar-padding-horizontal;
-        margin-right: -@navbar-padding-horizontal;
-        margin-left:  -@navbar-padding-horizontal;
 
         @media (min-width: @grid-float-breakpoint) {
             margin-right: 0;
@@ -38,8 +34,40 @@
 
     .nav {
 
-        &.contacts-panel > li {
-            padding: 14px 0px 14px 19px;
+        &.cart-panel {
+
+            @media (max-width: @screen-sm) {
+                border-top: 1px solid @gray-darker;
+                margin-bottom: 0;
+            }
+
+            & > li > a {
+                cursor: pointer;
+            }
+
+            .visible-xs {
+                @media (max-width: @screen-sm) {
+                    display: inline-block!important;
+                }
+            }
+        }
+
+        &.contacts-panel {
+
+            & > li {
+                padding: 14px 19px 14px 19px;
+                cursor: pointer;
+            }
+
+            .contacts-panel__item {
+                display: inline-block;
+                margin-left: 15px;
+            }
+
+            @media (max-width: @screen-sm) {
+                border-top: 1px solid @gray-darker;
+                margin-bottom: 0;
+            }
         }
 
         &.language-panel > li > a {
@@ -59,6 +87,7 @@
             @media (max-width: @screen-sm) {
                 border-top: 1px solid @gray-darker;
                 border-bottom: 1px solid @gray-darker;
+                margin-top: 0;
             }
         }
 
@@ -72,6 +101,11 @@
         }
 
 
+        li > a.section-header:hover {
+            background-color: transparent;
+        }
+
+
         li > a,
         li > a:focus,
         li > a:hover,
@@ -79,6 +113,15 @@
         .open>a:focus,
         .open>a:hover {
             background-color: transparent;
+        }
+
+        li > a:focus,
+        li > a:hover,
+        .open>a:focus,
+        .open>a:hover {
+            @media (max-width: @screen-sm) {
+                background-color: @nav-link-hover-bg;
+            }
         }
 
         .dropdown-menu {

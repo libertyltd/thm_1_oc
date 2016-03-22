@@ -466,11 +466,11 @@ $('#button-cart').on('click', function() {
 			if (json['success']) {
 				$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
-				$('#cart > button').html('<i class="fa fa-shopping-cart"></i> ' + json['total']);
+				$('.cart-panel > li > a.dropdown-toggle > span.badge').html(json['total'].match(/\s*?(\d+)\s*?/igm)[0]);
 
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
 
-				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+				$('.cart-panel > li > ul').load('index.php?route=common/cart/info .cart-panel > li > ul li');
 			}
 		},
         error: function(xhr, ajaxOptions, thrownError) {
