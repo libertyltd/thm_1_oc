@@ -65,10 +65,31 @@
                 }
             }
 
+            &.contacts-panel,
             &.cart-panel {
+                .dropdown {
+                    @media (max-width: @screen-sm) {
+                        display: block;
+                        padding: 14px 19px 14px 19px;
+
+                        a {
+                            padding: 14px 17px 14px 0px;
+                        }
+                    }
+                }
+
                 .dropdown-menu {
                     right: 0;
                     left: auto;
+
+                    & > li > button {
+                        font-size: @font-size-base;
+                        text-align: left;
+
+                        &:hover {
+                            background-color: @nav-link-hover-bg;
+                        }
+                    }
 
                     @media (max-width: @screen-sm) {
                         right: auto;
@@ -145,8 +166,17 @@
         &.contacts-panel {
 
             & > li {
-                padding: 14px 19px 14px 19px;
+                display: inline-block;
+                padding: 14px 19px 14px 0px;
                 cursor: pointer;
+
+                & > a {
+                    padding: 0px;
+                }
+
+                @media (max-width: @screen-sm) {
+                    padding: 14px 19px 14px 19px;
+                }
             }
 
             .contacts-panel__item {

@@ -1,0 +1,22 @@
+.header-middle-menu {
+    display: block;
+    margin-bottom: @navbar-margin-bottom;
+
+    .header-middle-menu__body {
+        .make-row();
+
+        .header-middle-menu__logo {
+            .make-sm-column(4);
+            .hidden-xs();
+        }
+
+        .header-middle-menu__search {
+            .make-sm-column(5);
+        }
+
+        .header-middle-menu__auth {
+            .make-sm-column(3);
+        }
+    }
+
+}

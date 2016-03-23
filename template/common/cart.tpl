@@ -27,7 +27,7 @@
       } else { ?>
         <span class="badge" id="cart-total"></span>
       <?php } ?>
-      <i class="fa fa-shopping-cart"></i>
+      <i class="fa fa-shopping-cart" data-toggle="tooltip" data-placement="bottom" title="<?php echo $text_cart; ?>"></i>
       <span class="visible-xs"><?php echo $text_cart; ?></span>
       <span class="caret"></span>
     </a>
@@ -96,8 +96,7 @@
           </div>
           <?php } ?>
         </li>
-        <li>
-          <div>
+        <li class="cart-total">
             <table class="table">
               <?php foreach ($totals as $total) { ?>
               <tr>
@@ -106,21 +105,19 @@
               </tr>
               <?php } ?>
             </table>
-            <p class="text-right">
-              <a href="<?php echo $cart; ?>">
-                <strong>
-                  <i class="fa fa-shopping-cart"></i>
-                  <?php echo $text_cart; ?>
-                </strong></a>
-              &nbsp;&nbsp;&nbsp;
-              <a href="<?php echo $checkout; ?>">
-                <strong>
-                  <i class="fa fa-share"></i>
-                  <?php echo $text_checkout; ?>
-                </strong>
-              </a>
-            </p>
-          </div>
+
+            <a href="<?php echo $cart; ?>">
+            <strong>
+              <i class="fa fa-shopping-cart"></i>
+              <?php echo $text_cart; ?>
+            </strong></a>
+
+            <a href="<?php echo $checkout; ?>">
+              <strong>
+                <i class="fa fa-share"></i>
+                <?php echo $text_checkout; ?>
+              </strong>
+            </a>
         </li>
       <?php } else { ?>
         <li class="cart-items">
