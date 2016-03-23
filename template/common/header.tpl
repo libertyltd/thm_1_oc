@@ -114,20 +114,21 @@
                     <?php } ?>
             </ul>
             <?php } ?>
-
-            <?php echo $cart; ?>
-            <ul class="nav navbar-nav navbar-right contacts-panel">
-                <li class="dropdown">
-                    <i class="fa fa-envelope-o" class="dropdown-toggle"
-                       data-toggle="dropdown"></i>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i><span class="contacts-panel__item"><?php echo $telephone; ?></span></a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <?php echo $language; ?>
+            <div class="header-control-panel">
+                <?php echo $language; ?>
+                <ul class="nav contacts-panel">
+                    <li class="dropdown">
+                        <i class="fa fa-envelope-o" class="dropdown-toggle"
+                           data-toggle="dropdown"></i>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i><span class="contacts-panel__item"><?php echo $telephone; ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <?php echo $cart; ?>
+            </div>
         </div>
     </div>
 </nav>

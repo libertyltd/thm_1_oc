@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav navbar-right cart-panel">
+<ul class="nav cart-panel">
   <li class="dropdown">
     <a class="dropdown-toggle"
        data-toggle="dropdown"
@@ -18,12 +18,15 @@
             }
 
             $countProducts += $countVouchers;
+
             if ($countProducts > 0) {
               echo '<span class="badge" id="cart-total">'.$countProducts.'</span>';
             } else {
               echo '<span class="badge" id="cart-total"></span>';
             }
-      }?>
+      } else { ?>
+        <span class="badge" id="cart-total"></span>
+      <?php } ?>
       <i class="fa fa-shopping-cart"></i>
       <span class="visible-xs"><?php echo $text_cart; ?></span>
       <span class="caret"></span>
@@ -120,8 +123,10 @@
           </div>
         </li>
       <?php } else { ?>
-        <li>
-          <p class="text-center"><?php echo $text_empty; ?></p>
+        <li class="cart-items">
+            <div class="cart-item empty">
+              <?php echo $text_empty; ?>
+            </div>
         </li>
       <?php } ?>
     </ul>

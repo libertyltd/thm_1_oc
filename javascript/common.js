@@ -155,7 +155,12 @@ var cart = {
 					console.log (json['total']);
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
-						$('.cart-panel > li > a.dropdown-toggle > span.badge').html(json['total'].match(/\s*?(\d+)\s*?/igm)[0]);
+						if (json['total'].match(/\s*?(\d+)\s*?/igm)[0] == 0) {
+							json['total'] = '';
+						} else {
+							json['total'] = json['total'].match(/\s*?(\d+)\s*?/igm)[0];
+						}
+						$('.cart-panel > li > a.dropdown-toggle > span.badge').html(json['total']);
 					}, 100);
 
 					$('html, body').animate({ scrollTop: 0 }, 'slow');
@@ -183,7 +188,12 @@ var cart = {
 			success: function(json) {
 				// Need to set timeout otherwise it wont update the total
 				setTimeout(function () {
-					$('.cart-panel > li > a.dropdown-toggle > span.badge').html(json['total'].match(/\s*?(\d+)\s*?/igm)[0]);
+					if (json['total'].match(/\s*?(\d+)\s*?/igm)[0] == 0) {
+						json['total'] = '';
+					} else {
+						json['total'] = json['total'].match(/\s*?(\d+)\s*?/igm)[0];
+					}
+					$('.cart-panel > li > a.dropdown-toggle > span.badge').html(json['total']);
 				}, 100);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
@@ -212,7 +222,12 @@ var cart = {
 			success: function(json) {
 				// Need to set timeout otherwise it wont update the total
 				setTimeout(function () {
-					$('.cart-panel > li > a.dropdown-toggle > span.badge').html(json['total'].match(/\s*?(\d+)\s*?/igm)[0]);
+					if (json['total'].match(/\s*?(\d+)\s*?/igm)[0] == 0) {
+						json['total'] = '';
+					} else {
+						json['total'] = json['total'].match(/\s*?(\d+)\s*?/igm)[0];
+					}
+					$('.cart-panel > li > a.dropdown-toggle > span.badge').html(json['total']);
 				}, 100);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
@@ -247,7 +262,12 @@ var voucher = {
 			success: function(json) {
 				// Need to set timeout otherwise it wont update the total
 				setTimeout(function () {
-					$('.cart-panel > li > a.dropdown-toggle > span.badge').html(json['total'].match(/\s*?(\d+)\s*?/igm)[0]);
+					if (json['total'].match(/\s*?(\d+)\s*?/igm)[0] == 0) {
+						json['total'] = '';
+					} else {
+						json['total'] = json['total'].match(/\s*?(\d+)\s*?/igm)[0];
+					}
+					$('.cart-panel > li > a.dropdown-toggle > span.badge').html(json['total']);
 				}, 100);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {

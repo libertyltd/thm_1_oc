@@ -5,6 +5,80 @@
         position: relative;
     }
 
+    .header-control-panel {
+        white-space: nowrap;
+        float: right;
+
+        @media (max-width: @screen-sm) {
+            float: none;
+            display: block;
+            white-space: normal;
+        }
+
+        form {
+            display: inline-block;
+            @media (max-width: @screen-sm) {
+                display: block;
+            }
+        }
+        .nav {
+            display: inline-block;
+
+            @media (max-width: @screen-sm) {
+                display: block;
+
+                margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
+
+                > li > a {
+                    padding-top:    10px;
+                    padding-bottom: 10px;
+                    line-height: @line-height-computed;
+                }
+
+                .open .dropdown-menu {
+                    position: static;
+                    float: none;
+                    width: auto;
+                    margin-top: 0;
+                    background-color: transparent;
+                    border: 0;
+                    box-shadow: none;
+                    > li > a,
+                    .dropdown-header {
+                        padding: 5px 15px 5px 25px;
+                    }
+                    > li > a {
+                        line-height: @line-height-computed;
+                        &:hover,
+                        &:focus {
+                            background-image: none;
+                        }
+                    }
+                }
+            }
+
+            &.language-panel > li {
+                display: inline-block;
+
+                @media (max-width: @screen-sm) {
+                    display: block;
+                }
+            }
+
+            &.cart-panel {
+                .dropdown-menu {
+                    right: 0;
+                    left: auto;
+
+                    @media (max-width: @screen-sm) {
+                        right: auto;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+
     .small-logo {
         position: absolute;
         height: 50px;

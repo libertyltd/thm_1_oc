@@ -1,6 +1,6 @@
 <?php if (count($languages) > 1) { ?>
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="language">
-    <ul class="nav navbar-nav navbar-right language-panel">
+    <ul class="nav language-panel">
         <li class="visible-xs">
           <a class="section-header">
             <?php echo $text_language; ?>
