@@ -2,20 +2,167 @@
     display: block;
     margin-bottom: @navbar-margin-bottom;
 
+
     .header-middle-menu__body {
         .make-row();
+        height: 76px;
 
         .header-middle-menu__logo {
-            .make-sm-column(4);
+            .make-sm-column(3);
             .hidden-xs();
+            height: 100%;
+            overflow: hidden;
+
+            a {
+                display: inline-block;
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+
+                img {
+                    position: absolute;
+                    bottom: 0px;
+                }
+            }
+
         }
 
         .header-middle-menu__search {
-            .make-sm-column(5);
+            .make-sm-column(4);
+            .make-sm-column-offset(1);
+            height: 100%;
+            overflow: hidden;
+
+            .input-group {
+                //position: absolute;
+                //bottom: 0px;
+                margin-top: 45px;
+            }
+
+            input[type="text"] {
+                height: 30px;
+                padding: 10px 9px;
+                font-size: 14px;
+                background-color: transparent;
+                font-weight: 200;
+                color: @gray-lighter;
+                border-right: 0px!important;
+
+                box-shadow: none;
+
+                &:focus,
+                &:active {
+                    box-shadow: none;
+                    border-color: #ccc;
+                }
+
+                .placeholder (#c6c6c6);
+            }
+
+            button   {
+                height: 30px;
+                background-color: transparent;
+                outline: none;
+                padding: 5px 9px;
+                font-size: 14px;
+                color: @gray-base;
+                border-left: 0px!important;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    border-color: #ccc!important;
+                }
+            }
+
         }
 
         .header-middle-menu__auth {
             .make-sm-column(3);
+            .make-sm-column-offset(1);
+            height: 100%;
+            overflow: hidden;
+
+            .auth-element {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+
+            .auth-start {
+                text-align: right;
+
+                .container-action {
+                    position: absolute;
+                    height: auto;
+                    bottom: 0px;
+                    right: 0px;
+                }
+
+                .auth-action {
+                    display: inline-block;
+                    color: #c6c6c6;
+                    font-size: 14px;
+                    text-decoration: underline;
+                    margin-right: 20px;
+
+
+                    &:last-child {
+                        margin-right: 0px;
+                    }
+                }
+            }
+
+            .auth-form {
+                form {
+                    .form-group {
+                        margin-bottom: 9px;
+
+                        &:last-child {
+                            margin-bottom: 0px;
+                        }
+
+                        input[type="text"],
+                        input[type="password"] {
+                            outline: none;
+                            background-color: transparent;
+                            .placeholder (#c6c6c6);
+
+
+                            &:hover,
+                            &:active,
+                            &:focus {
+                                outline: none;
+                                box-shadow: none;
+                                border-color: #ccc;
+                            }
+                        }
+
+                        input[type="password"] {
+                            border-right: 0px;
+                        }
+
+                        .input-group-btn {
+                            button {
+                                border-left: 0px;
+                                background-color: transparent;
+                                outline: none;
+                                border-left: 0px;
+
+                                &:hover,
+                                &:active,
+                                &:focus {
+                                    outline: none;
+                                    box-shadow: none;
+                                    border-color: #ccc;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

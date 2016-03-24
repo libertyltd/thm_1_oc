@@ -344,6 +344,45 @@ var compare = {
 	}
 }
 
+
+/* Форма входа и регистрации */
+var registerForm = {
+	'elements': {},
+	'init': function () {
+		this.elements.windowGeneral = $('.header-middle-menu__auth');
+		this.elements.windowStart = $('.header-middle-menu__auth > .auth-start');
+		this.elements.windowForm = $('.header-middle-menu__auth > .auth-form');
+		this.elements.windowError = $('.header-middle-menu__auth > .auth-error');
+		this.elements.windowAuthorized = $('.header-middle-menu__auth > .auth-logged');
+
+		var self = this;
+		/* Инициализируем окно входа в систему */
+		this.elements.windowStart.find('a.login').click(function () {
+			self.nextWindow(self.elements.windowStart);
+			return false;
+		});
+	},
+	'nextWindow': function ($currentWindow) {
+		var height =$currentWindow.outerHeight();
+		var currentScroll = this.elements.windowGeneral.scrollTop();
+		this.elements.windowGeneral.animate({scrollTop: currentScroll+height}, 500, 'swing');
+
+	},
+	'backWindow': function (currentWindow) {
+
+	}
+}
+
+
+/**
+ * Инициализация некоторых законченных элементов
+ */
+$(document).ready(function () {
+
+	registerForm.init();
+
+});
+
 /* Agree to Terms */
 $(document).delegate('.agree', 'click', function(e) {
 	e.preventDefault();

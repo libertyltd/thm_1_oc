@@ -162,6 +162,49 @@
             </div>
 
             <div class="header-middle-menu__auth">
+                <?php if ($logged) { ?>
+                <div class="auth-element auth-logged">
+
+                </div>
+                <?php } else { ?>
+                <div class="auth-element auth-start">
+                    <div class="container-action">
+                        <a  href="#"
+                            class="auth-action login"
+                        >
+                            <?php echo $text_login; ?>
+                        </a>
+                        <a  href="<?php echo $register; ?>"
+                            class="auth-action register"
+                        >
+                            <?php echo $text_register; ?>
+                        </a>
+                    </div>
+                </div>
+                <div class="auth-element auth-form">
+                    <form action="<?php echo $login; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <div class="form-group">
+                            <input type="text" name="email" placeholder="E-mail" id="input-email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="password" name="password" placeholder="Pass" class="form-control">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="<?php echo $text_login; ?>">
+                                        <i class="fa fa-sign-in"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <?php } ?>
+
+                <div class="auth-element auth-error">
+
+                </div>
+
+                <!--
                 <div class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span class="caret"></span></a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <?php if ($logged) { ?>
@@ -171,11 +214,12 @@
                         <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
                         <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
                         <?php } else { ?>
-                        <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
-                        <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+                        <li></li>
+                        <li></li>
                         <?php } ?>
                     </ul>
                 </div>
+                -->
             </div>
 
         </div>

@@ -9,8 +9,8 @@ gulp.task ('bootstrap', function() {
     gulp.src(['./stylesheet/less/bootstrap-custom/bootstrap.less'])
         .pipe(sourcemaps.init())
         .pipe(less())
-        .pipe(sourcemaps.write('./'))
         .pipe(minify())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./stylesheet/'));
 });
 
