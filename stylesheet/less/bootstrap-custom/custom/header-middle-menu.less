@@ -7,6 +7,10 @@
         .make-row();
         height: 76px;
 
+        @media (max-width: @screen-sm) {
+            height: auto;
+        }
+
         .header-middle-menu__logo {
             .make-sm-column(3);
             .hidden-xs();
@@ -34,10 +38,17 @@
             height: 100%;
             overflow: hidden;
 
+            @media (max-width: @screen-sm) {
+                height: auto;
+                margin-bottom: 10px;
+            }
+
             .input-group {
-                //position: absolute;
-                //bottom: 0px;
                 margin-top: 45px;
+
+                @media (max-width: @screen-sm) {
+                    margin-top: auto;
+                }
             }
 
             input[type="text"] {
@@ -84,6 +95,10 @@
             height: 100%;
             overflow: hidden;
 
+            @media (max-width: @screen-sm) {
+                height: 76px;
+            }
+
             .auth-element {
                 display: inline-block;
                 width: 100%;
@@ -99,6 +114,10 @@
                     height: auto;
                     bottom: 0px;
                     right: 0px;
+
+                    @media (max-width: @screen-sm) {
+                        position: static;
+                    }
                 }
 
                 .auth-action {
@@ -120,6 +139,11 @@
                     .form-group {
                         margin-bottom: 9px;
 
+                        @media (max-width: @screen-sm) {
+                            margin-left: 0px;
+                            margin-right: 0px;
+                        }
+
                         &:last-child {
                             margin-bottom: 0px;
                         }
@@ -129,6 +153,7 @@
                             outline: none;
                             background-color: transparent;
                             .placeholder (#c6c6c6);
+                            color: @gray-lighter;
 
 
                             &:hover,
@@ -162,6 +187,25 @@
                         }
                     }
                 }
+            }
+
+            .auth-logged {
+                .auth-logged__elem {
+                    display: block;
+                    margin-bottom: 3px;
+
+                    &.double {
+                        display: inline-block;
+                    }
+
+                    &.exit {
+                        color: #e74c3c;
+                        font-weight: 400;
+                        float: right;
+                    }
+                }
+
+
             }
         }
     }

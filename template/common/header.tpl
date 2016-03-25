@@ -164,7 +164,11 @@
             <div class="header-middle-menu__auth">
                 <?php if ($logged) { ?>
                 <div class="auth-element auth-logged">
-
+                    <a href="<?php echo $account; ?>" class="auth-logged__elem"><span><?php echo $text_account; ?></span></a>
+                    <a href="<?php echo $order; ?>" class="auth-logged__elem"><span><?php echo $text_order; ?></span></a>
+                    <a href="<?php echo $transaction; ?>" class="auth-logged__elem"><span><?php echo $text_transaction; ?></span></a>
+                    <a href="<?php echo $download; ?>" class="auth-logged__elem double"><span><?php echo $text_download; ?></span></a>
+                    <a href="<?php echo $logout; ?>" class="auth-logged__elem double exit"><span><?php echo $text_logout; ?><span></span></a>
                 </div>
                 <?php } else { ?>
                 <div class="auth-element auth-start">
@@ -201,18 +205,15 @@
                 <?php } ?>
 
                 <div class="auth-element auth-error">
-
+                    <!-- по сути тут сообщение об ошибке и кнопка назад -->
                 </div>
 
                 <!--
                 <div class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span class="caret"></span></a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <?php if ($logged) { ?>
-                        <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-                        <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-                        <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
-                        <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
-                        <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
+                        <li></li>
+                        <li>
                         <?php } else { ?>
                         <li></li>
                         <li></li>
